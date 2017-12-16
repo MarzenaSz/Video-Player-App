@@ -19,7 +19,6 @@ class SearchBar extends Component {
             <div>
                 {/* update state and rerender whenever event onChange occures */}
                 <input value={this.state.term} onChange={e => this.setState({ term: e.target.value})}/>
-                <p>The input value: {this.state.term}</p>
             </div>
         );
     }
