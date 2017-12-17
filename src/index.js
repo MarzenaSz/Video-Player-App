@@ -27,6 +27,7 @@ class App extends Component {
     render(){
         return (
             <div>
+                <h1 className='title'>Random Title</h1>
                 <SearchBar />
                 {/* pass in a specific video to VideoDetail component */}
                 <VideoDetail video={this.state.selectedVideo}/>

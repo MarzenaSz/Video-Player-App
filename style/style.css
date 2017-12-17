@@ -1,27 +1,50 @@
+.container {
+    /* add some space between the screen and the container */
+    margin-top: 25px;
+    /* add some padding to the top and to the bottom */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    /* set background to light purple */
+    background-color: rgb(247, 238, 253);
+}
+
+.title {
+    /* center the text */
+    text-align: center;
+}
+
 .search-bar {
     margin: 20px;
+    /* center the content */
     text-align: center;
 }
 
 .search-bar input {
+    /* set the with of search bar to 75% */
     width: 75%;
 }
 
 .video-item img {
+    /* set max width of an image to 64% */
     max-width: 64px;
 }
 
 .video-detail .details {
+    /* add some space between elements */
     margin-top: 10px;
     padding: 10px;
+    /* add border around a video */
     border: 1px solid #ddd;
+    /* rount the corners */
     border-radius: 4px;
 }
 
 .list-group-item {
+    /* change curser into pointer while hovering on the list */
     cursor: pointer;
 }
 
 .list-group-item:hover {
+    /* change background to gray on hover */
     background-color: #eee;
 }
