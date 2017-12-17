@@ -9,11 +9,18 @@ const API_KEY = 'AIzaSyBZmb403O3ALUDM1PUmqdiAj1dvcZo6Aik';
 class App extends Component {
     constructor(props){
         super(props);
-        // set default state value to be empty
-        this.state = { videos: [] };
-        // instantly update the video list. Fill it in with some videos.
+        // set default state values to be empty
+        this.state = { 
+            videos: [],
+            selectedVideo: null
+         };
+        // instantly update the video list. Fill it in with some videos
+        //... and set selectedVideo to a first video from the videos array
         YTSearch({key: API_KEY, term: 'surfboards'}, (videos) => {
-            this.setState({ videos });
+            this.setState({ 
+                videos: videos,
+                selectedVideo: videos[0]
+             });
             // this.setState({ videos: videos });
         });
     }
@@ -21,10 +28,13 @@ class App extends Component {
         return (
             <div>
                 <SearchBar />
-                <VideoDetail video={this.state.videos[0]}/>
+                {/* pass in a specific video to VideoDetail component */}
+                <VideoDetail video={this.state.selectedVideo}/>
                 {/* pass in info as a prop about video array to VideoList 
-                component do it can use it */}
-                <VideoList videos={this.state.videos}/>
+                component do it can use it || pass in a function 
+                that updates selectedVideo state */}
+                <VideoList videos={this.state.videos} 
+                onVideoSelect={selectedVideo => this.setState({ selectedVideo })}/>
             </div>
         );
     }  
