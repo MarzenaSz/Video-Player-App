@@ -16,7 +16,7 @@ class SearchBar extends Component {
     render() {
         
         return (
-            <div>
+            <div className='search-bar'>
                 {/* update state and rerender whenever event onChange occures */}
                 <input value={this.state.term} onChange={e => this.setState({ term: e.target.value})}/>
             </div>
