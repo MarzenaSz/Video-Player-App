@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import YTSearch from 'youtube-api-search';
@@ -30,12 +31,15 @@ class App extends Component {
     };
 
     render(){
+        {/* so when SearchBar will call 'onTermSearchChange' callback, the string passed to it will be send 
+        right into 'videoSearch' method and term will be as its argument. This function will be called every 300ms*/}
+        const videoSearch = _.debounce((term) => { this.videoSearch(term) }, 300);
+
         return (
             <div>
                 <h1 className='title'>Random Title</h1>
-                {/* so when SearchBar will call 'onTermSearchChange' callback, the string passed to it will be send 
-                right into 'videoSearch' method and term will be as its argument*/}
-                <SearchBar onTermSearchChange={term => this.videoSearch(term)}/>
+                
+                <SearchBar onTermSearchChange={videoSearch}/>
                 {/* pass in a specific video to VideoDetail component */}
                 <VideoDetail video={this.state.selectedVideo}/>
                 {/* pass in info as a prop about video array to VideoList 
