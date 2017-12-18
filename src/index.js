@@ -12,23 +12,30 @@ class App extends Component {
         // set default state values to be empty
         this.state = { 
             videos: [],
-            selectedVideo: null
+            selectedVideo: null,
          };
+         // call initial search
+         this.videoSearch('yachts');
+    }
+
+    videoSearch = (term) => {
         // instantly update the video list. Fill it in with some videos
-        //... and set selectedVideo to a first video from the videos array
-        YTSearch({key: API_KEY, term: 'surfboards'}, (videos) => {
+        //... and as a default set selectedVideo to a first video from the videos array
+        YTSearch({key: API_KEY, term: term}, (videos) => {
             this.setState({ 
                 videos: videos,
                 selectedVideo: videos[0]
              });
-            // this.setState({ videos: videos });
         });
-    }
+    };
+
     render(){
         return (
             <div>
                 <h1 className='title'>Random Title</h1>
-                <SearchBar />
+                {/* so when SearchBar will call 'onTermSearchChange' callback, the string passed to it will be send 
+                right into 'videoSearch' method and term will be as its argument*/}
+                <SearchBar onTermSearchChange={term => this.videoSearch(term)}/>
                 {/* pass in a specific video to VideoDetail component */}
                 <VideoDetail video={this.state.selectedVideo}/>
                 {/* pass in info as a prop about video array to VideoList 

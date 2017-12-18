@@ -18,9 +18,18 @@ class SearchBar extends Component {
         return (
             <div className='search-bar'>
                 {/* update state and rerender whenever event onChange occures */}
-                <input value={this.state.term} onChange={e => this.setState({ term: e.target.value})}/>
+                <input value={this.state.term} onChange={event => this.onInputChange(event.target.value)}/>
             </div>
         );
+    }
+
+    onInputChange(term) {
+        // update the term state
+        this.setState({ term });
+        // or this.setState({ term : term });
+        // send the into into videoSearch method
+        this.props.onTermSearchChange(term);
+
     }
 }
 // make it accessable to other files that import SearchBar component
