@@ -37,8 +37,7 @@ class App extends Component {
 
         return (
             <div>
-                <h1 className='title'>Random Title</h1>
-                
+                <h1 className='title'>Video Search App</h1>
                 <SearchBar onTermSearchChange={videoSearch}/>
                 {/* pass in a specific video to VideoDetail component */}
                 <VideoDetail video={this.state.selectedVideo}/>

@@ -4,13 +4,17 @@
     /* add some padding to the top and to the bottom */
     padding-top: 10px;
     padding-bottom: 10px;
-    /* set background to light purple */
-    background-color: rgb(247, 238, 253);
+    /* set background color */
+    background-color: rgb(221, 221, 221);
+    /* change font style to Lato */
+    font-family: 'Lato', sans-serif;
 }
 
 .title {
     /* center the text */
     text-align: center;
+    /* decrease the font weight */
+    font-weight: 300;
 }
 
 .search-bar {
@@ -37,6 +41,7 @@
     border: 1px solid #ddd;
     /* rount the corners */
     border-radius: 4px;
+    background-color: #fff;
 }
 
 .list-group-item {
